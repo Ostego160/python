@@ -1,6 +1,7 @@
 import pytest
 from television import *
 
+
 class Test:
     def setup_method(self):
         self.tv1 = Television()
@@ -77,3 +78,4 @@ class Test:
         assert self.tv1.__str__() == '# Power = True, Channel = 0, Volume = 0'
 
 
+test = Test()

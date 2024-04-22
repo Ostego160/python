@@ -5,54 +5,72 @@ class Television:
     MIN_CHANNEL = 0
     MAX_CHANNEL = 3
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.__status  = False
         self.__muted   = False
         self.__volume  = 0
         self.__channel = 0
 
-    def power(self):
+    def power(self) -> None:
         """
         Method to toggle television power.
+
+        :returns:
+            None
         """
         self.__status = not self.__status
 
-    def mute(self):
+    def mute(self) -> None:
         """
         Method to toggle television mute.
+
+        :returns:
+            None
         """
         if self.__status:
             self.__muted = not self.__muted
 
-    def channel_up(self):
+    def channel_up(self) -> None:
         """
         Method to increase the channel.
+
+        :returns:
+            None
         """
         if self.__status:
             self.__channel += 1
             if self.__channel > self.MAX_CHANNEL:
                 self.__channel = self.MIN_CHANNEL
 
-    def channel_down(self):
+    def channel_down(self) -> None:
         """
         Method to decrease the channel.
+
+        :returns:
+            None
         """
         if self.__status:
             self.__channel -= 1
             if self.__channel < self.MIN_CHANNEL:
                 self.__channel = self.MAX_CHANNEL
 
-    def volume_up(self):
+    def volume_up(self) -> None:
         """
         Method to increase the volume.
+
+        :returns:
+            None
         """
         if self.__status:
             self.__muted = False
             self.__volume = min(self.MAX_VOLUME, self.__volume + 1)
 
-    def volume_down(self):
+    def volume_down(self) -> None:
         """
         Method to decrease the volume.
+
+        :returns:
+            None
         """
         if self.__status:
             self.__muted = False
@@ -61,7 +79,9 @@ class Television:
     def __str__(self) -> str:
         """
         Method to show TV status.
-        :return: tv status
+
+        :returns:
+            str: tv status
         """
         if self.__muted:
             return f'# Power = {self.__status}, Channel = {self.__channel}, Volume = 0'
